@@ -17,4 +17,37 @@ class Product {
     required this.discountPercentage,
     this.isFavorite = false,
   });
+
+// Convert JSON -> Product
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      title: json['title'],
+      price: (json['price'] as num).toDouble(),
+      description: json['description'] ?? '',
+      image: json['thumbnail'] ?? json['image'] ?? '',
+      discountPercentage:
+          (json['discountPercentage'] as num?)?.toDouble() ?? 0,//
+    );
+  }
+
+  // Convert Product -> JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'price': price,
+      'description': description,
+      'image': image,
+      'discountPercentage': discountPercentage,
+      'isFavorite': isFavorite,
+    };
+  }
+
+ 
+
+
 }
+
+
+
