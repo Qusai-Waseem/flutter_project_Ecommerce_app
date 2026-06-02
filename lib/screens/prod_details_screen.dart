@@ -46,7 +46,7 @@ class ProductDetailsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            // Product Image
+            // Product Img if its online 
             Image.network(
               product.image,
               width: double.infinity,
@@ -61,7 +61,8 @@ class ProductDetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
-                  // Title + Favorite icon in the same row
+                  
+                  //decr
                   Row(
                     children: [
                       Expanded(
@@ -158,7 +159,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       onPressed: () {
                         shopProvider.addToCart(product);
 
-                        // Show a small snackbar when item is added
+                        // snackbar item added
                         ScaffoldMessenger.of(context).hideCurrentSnackBar();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(

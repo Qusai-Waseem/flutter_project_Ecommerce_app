@@ -13,13 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // MultiProvider lets us provide multiple providers at once
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ShopProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ],
-      // Consumer listens to ThemeProvider and rebuilds MaterialApp when theme changes
+      //ThemeProvider 
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
           return MaterialApp(
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  // --- Light Theme ---
+  // light theme 
   ThemeData _buildLightTheme() {
     const primaryColor = Color(0xFF2563EB); // a nice modern blue
     const secondaryColor = Color(0xFF7C3AED); // purple accent
@@ -99,7 +99,7 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  // --- Dark Theme ---
+  // Dark  
   ThemeData _buildDarkTheme() {
     const primaryColor = Color(0xFF3B82F6);
     const secondaryColor = Color(0xFF8B5CF6);

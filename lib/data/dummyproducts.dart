@@ -1,5 +1,6 @@
 import '../models/product.dart';
 
+//اذا كان محلي 
 final List<Product> dummyProducts = [
   Product(
     id: 1,

@@ -46,7 +46,7 @@ class FavoritesStorage {
 
       await file.writeAsString(jsonEncode(data));
     } catch (e) {
-      // تجاهل الخطأ (graceful handling)
+      // تجاهل الخطأ 
     }
   }
 }

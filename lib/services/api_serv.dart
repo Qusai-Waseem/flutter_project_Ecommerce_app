@@ -1,12 +1,10 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-
 import '../models/product.dart';
 
 class ApiService {
   static const String baseUrl =
-      'https://dummyjson.com/products';
+      'https://dummyjson.com/products'; // api link to online products
 
   Future<List<Product>> fetchProducts() async {
     final response = await http.get(

@@ -48,7 +48,8 @@ class FavoritesScreen extends StatelessWidget {
                 ],
               ),
             )
-          // Favorites list
+
+
           : ListView.builder(
               padding: const EdgeInsets.all(12),
               itemCount: shopProvider.favoriteItems.length,
@@ -87,7 +88,7 @@ class FavoritesScreen extends StatelessWidget {
 
                         const SizedBox(width: 12),
 
-                        // Product info
+                        // product info
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,7 +114,8 @@ class FavoritesScreen extends StatelessWidget {
                                   color: colorScheme.primary,
                                 ),
                               ),
-                              // Show discount if available
+                              
+
                               if (product.discountPercentage > 0)
                                 Padding(
                                   padding: const EdgeInsets.only(top: 2),
@@ -130,10 +132,12 @@ class FavoritesScreen extends StatelessWidget {
                           ),
                         ),
 
-                        // Action buttons column
+                       
                         Column(
                           children: [
-                            // Remove from favorites
+
+                            // remove from favorites
+
                             GestureDetector(
                               onTap: () {
                                 shopProvider.toggleFavorite(product);
@@ -153,7 +157,7 @@ class FavoritesScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 8),
-                            // Add to cart from favorites
+                            
                             GestureDetector(
                               onTap: () {
                                 shopProvider.addToCart(product);

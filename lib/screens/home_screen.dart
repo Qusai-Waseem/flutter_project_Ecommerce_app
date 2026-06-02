@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        // Custom title with a tagline underneath
+        //  title 
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -34,6 +34,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Text(
+              //logo text
               'Find your next gadget',
               style: TextStyle(
                 fontSize: 12,
@@ -46,7 +47,8 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         actions: [
-          // Theme toggle button
+
+          // theme button
 
           IconButton(
             icon: AnimatedSwitcher(
@@ -64,7 +66,7 @@ class HomeScreen extends StatelessWidget {
             tooltip: 'Toggle theme',
           ),
 
-          // Favorites button
+          // favorites but
           
           IconButton(
             icon: const Icon(Icons.favorite_border_rounded),
@@ -79,7 +81,7 @@ class HomeScreen extends StatelessWidget {
             tooltip: 'Favorites',
           ),
 
-          // Cart button with badge showing item count
+          // cart button 
           Stack(
             alignment: Alignment.center,
             children: [
@@ -95,7 +97,8 @@ class HomeScreen extends StatelessWidget {
                 },
                 tooltip: 'Cart',
               ),
-              // Show badge only when there are items in cart
+              // num of  items in cart
+
               if (shopProvider.cartItemCount > 0)
                 Positioned(
                   top: 6,
@@ -110,6 +113,7 @@ class HomeScreen extends StatelessWidget {
                       minWidth: 18,
                       minHeight: 18,
                     ),
+
                     child: Text(
                       '${shopProvider.cartItemCount}',
                       style: const TextStyle(
@@ -131,7 +135,7 @@ class HomeScreen extends StatelessWidget {
 
       //bodyyyy
 
-      // Product grid - 2 columns
+      
       body: shopProvider.isLoading
       ?const Center(
         child: CircularProgressIndicator(),
@@ -157,7 +161,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// Separate widget for each product card to keep code clean
+
 class _ProductCard extends StatelessWidget {
   final Product product;
 
@@ -171,7 +175,7 @@ class _ProductCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        // Navigate to product details screen when card is tapped
+        // Nav to prod details screen  
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -184,13 +188,16 @@ class _ProductCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Product image with discount badge and favorite button
+
+          
+          //  image with discount and favorite button
+          
           Expanded(
             flex: 5,
             child: Stack(
               fit: StackFit.expand,
               children: [
-                // Product image
+                //  image
                 Container(
                   color: isDark
                       ? const Color(0xFF2D3748)
@@ -208,7 +215,8 @@ class _ProductCard extends StatelessWidget {
                   ),
                 ),
 
-                // Discount badge - top left
+                // discount badge
+                 
                 if (product.discountPercentage > 0)
                   Positioned(
                     top: 8,
@@ -218,6 +226,7 @@ class _ProductCard extends StatelessWidget {
                         horizontal: 8,
                         vertical: 4,
                       ),
+
                       decoration: BoxDecoration(
                         color: const Color(0xFFEF4444),
                         borderRadius: BorderRadius.circular(8),
@@ -233,7 +242,7 @@ class _ProductCard extends StatelessWidget {
                     ),
                   ),
 
-                // Favorite button - top right
+                // Favorite bt
                 Positioned(
                   top: 4,
                   right: 4,
@@ -269,7 +278,6 @@ class _ProductCard extends StatelessWidget {
             ),
           ),
 
-          // Product info section
           Expanded(
             flex: 4,
             child: Padding(
@@ -292,7 +300,7 @@ class _ProductCard extends StatelessWidget {
 
                   const SizedBox(height: 4),
 
-                  // Price row
+                  // Price 
                   Row(
                     children: [
                       Text(
@@ -303,8 +311,10 @@ class _ProductCard extends StatelessWidget {
                           color: colorScheme.primary,
                         ),
                       ),
-                      // Show original price if there's a discount
-                      if (product.discountPercentage > 0) ...[
+                      //  original price i
+                      
+                      if (product.discountPercentage > 0) 
+                      ...[
                         const SizedBox(width: 6),
                         Text(
                           '\$${(product.price / (1 - product.discountPercentage / 100)).toStringAsFixed(0)}',
@@ -326,7 +336,7 @@ class _ProductCard extends StatelessWidget {
 
                   const Spacer(),
 
-                  // Add to cart button - full width
+                  // Add to cart but
                   SizedBox(
                     width: double.infinity,
                     height: 34,
@@ -334,7 +344,7 @@ class _ProductCard extends StatelessWidget {
                       onPressed: () {
                         shopProvider.addToCart(product);
 
-                        // Show a small snackbar when item is added
+                        //  snackbar 
                         ScaffoldMessenger.of(context).hideCurrentSnackBar();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(

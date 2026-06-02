@@ -18,7 +18,7 @@ class Product {
     this.isFavorite = false,
   });
 
-// Convert JSON -> Product
+// تحويل
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'],
@@ -31,7 +31,7 @@ class Product {
     );
   }
 
-  // Convert Product -> JSON
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
